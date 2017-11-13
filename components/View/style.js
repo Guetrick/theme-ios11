@@ -26,7 +26,6 @@ const container = css({
  * @return {string} The content style class.
  */
 const content = (hasNavigator = true, hasTabBar = true) => css({
-  background: colors.light,
   overflow: 'auto',
   overflowScrolling: 'touch',
   WebkitOverflowScrolling: 'touch',
