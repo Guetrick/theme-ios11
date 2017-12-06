@@ -16,7 +16,8 @@ const openFilterView = () => (dispatch, getState) => {
   const state = getState();
 
   dispatch(pushHistory({
-    pathname: FILTER_PATH,
+    // TODO: use selector
+    pathname: state.history.pathname + FILTER_PATH,
     params: {
       ...state.history.queryParams,
     },

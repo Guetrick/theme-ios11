@@ -61,8 +61,8 @@ const Pages = () =>
       <Route path={`${PAGE_PATH}/:pageId`} component={Page} />
       <Route path={`${CATEGORY_PATH}`} component={Category} />
       <Route path={`${CATEGORY_PATH}/:categoryId?`} component={Category} />
-      <Route path={`${FILTER_PATH}`} component={Filter} />
-      <Route path={`${FILTER_PATH}/:attribute`} component={FilterAttribute} />
+      <Route path={`${CATEGORY_PATH}/:categoryId${FILTER_PATH}`} component={Filter} />
+      <Route path={`${CATEGORY_PATH}/:categoryId${FILTER_PATH}/:attribute`} component={FilterAttribute} />
       <Route path={`${ITEM_PATH}/:productId`} component={Product} />
       <Route path={`${ITEM_PATH}/:productId/gallery/:initialSlide?`} component={ProductGallery} />
       <Route path={`${ITEM_PATH}/:productId/reviews/`} component={Reviews} />
