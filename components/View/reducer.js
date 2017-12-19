@@ -5,14 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  SET_VIEW_TITLE,
-  SET_VIEW_TOP,
-} from './constants';
+import { SET_VIEW_TITLE } from './constants';
 
 const defaultState = {
   title: null,
-  isTop: true,
 };
 
 /**
@@ -27,11 +23,6 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         title: action.title,
-      };
-    case SET_VIEW_TOP:
-      return {
-        ...state,
-        isTop: action.isTop,
       };
     default:
       return state;

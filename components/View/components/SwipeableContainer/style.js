@@ -9,9 +9,13 @@ import { css } from 'glamor';
 import colors from 'Styles/colors';
 
 export default css({
-  background: colors.background,
-  minHeight: '100vh',
-  overflowX: 'hidden',
-  width: '100vw',
-  position: 'relative',
+  boxShadow: '0 0 6px rgba(0, 0, 0, .1)',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  background: colors.light,
+  width: '100%',
+  height: '100%',
+  willChange: 'transform',
+  zIndex: 1,
 }).toString();

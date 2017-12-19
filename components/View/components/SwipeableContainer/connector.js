@@ -6,8 +6,8 @@
  */
 
 import { connect } from 'react-redux';
-import { isTabBarVisible } from 'Components/TabBar/selectors';
-import setViewTitle from './action-creators/setViewTitle';
+import goBackHistory from '@shopgate/pwa-common/actions/history/goBackHistory';
+import { getHistoryLength } from '@shopgate/pwa-common/selectors/history';
 
 /**
  * Maps the contents of the state to the component props.
@@ -15,7 +15,7 @@ import setViewTitle from './action-creators/setViewTitle';
  * @return {Object} The extended component props.
  */
 const mapStateToProps = state => ({
-  hasTabBar: isTabBarVisible(state),
+  historyLength: getHistoryLength(state),
 });
 
 /**
@@ -24,7 +24,7 @@ const mapStateToProps = state => ({
  * @return {Object} The extended component props.
  */
 const mapDispatchToProps = dispatch => ({
-  setTitle: title => dispatch(setViewTitle(title)),
+  historyBack: () => dispatch(goBackHistory(1)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps);

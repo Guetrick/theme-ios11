@@ -6,18 +6,10 @@
  */
 
 import { css } from 'glamor';
-import colors from 'Styles/colors';
 import variables from 'Styles/variables';
 
-const container = css({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  background: colors.light,
-  width: '100%',
-  height: '100%',
-  zIndex: 1,
-}).toString();
+const NAVBAR_HEIGHT = variables.navigator.height;
+const STATUSBAR_HEIGHT = variables.statusBar.height;
 
 /**
  * Creates the content style.
@@ -31,33 +23,13 @@ const content = (hasNavigator = true, hasTabBar = true) => css({
   WebkitOverflowScrolling: 'touch',
   width: '100%',
   position: 'absolute',
-  top: hasNavigator ?
-    variables.navigator.height + variables.statusBar.height : variables.statusBar.height,
+  top: hasNavigator ? NAVBAR_HEIGHT + STATUSBAR_HEIGHT : STATUSBAR_HEIGHT,
   marginBottom: hasTabBar ? variables.tabBar.height : 0,
   bottom: 0,
   display: 'flex',
   flexDirection: 'column',
-  ':before': {
-    position: 'fixed',
-    display: 'block',
-    top: 0,
-    width: '100%',
-    height: hasNavigator ?
-      variables.navigator.height + variables.statusBar.height : variables.statusBar.height,
-    zIndex: 3,
-    content: '""',
-    transition: 'box-shadow 100ms cubic-bezier(0.25, 0.1, 0.25, 1)',
-  },
-}).toString();
-
-const contentShaded = css({
-  ':before': {
-    boxShadow: variables.navigator.shadow,
-  },
 }).toString();
 
 export default {
-  container,
   content,
-  contentShaded,
 };
